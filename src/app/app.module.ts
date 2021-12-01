@@ -19,6 +19,13 @@ const appRoutes: Routes = [
     ]
   },
   {
+    path: 'house', component: HouseComponent,
+    children: [
+      {path: 'add-house', component: HomeComponent},
+      {path: 'view-all', component: AboutComponent},
+    ]
+  },
+  {
     path: 'login', component:  LoginComponent
   },
   {

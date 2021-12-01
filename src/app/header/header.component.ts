@@ -25,4 +25,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('login');
   }
 
+  redirectToAddHouse(){
+    this.router.navigateByUrl('house/add-house');
+  }
+
 }
