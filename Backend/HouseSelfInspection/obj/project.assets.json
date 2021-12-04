@@ -12628,11 +12628,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eshwo\\Desktop\\Major Project\\HouseSelfInspection\\HouseSelfInspection\\HouseSelfInspection.csproj",
+      "projectUniqueName": "C:\\Users\\eshwo\\Desktop\\Project\\HouseSelfInspection\\Backend\\HouseSelfInspection\\HouseSelfInspection.csproj",
       "projectName": "HouseSelfInspection",
-      "projectPath": "C:\\Users\\eshwo\\Desktop\\Major Project\\HouseSelfInspection\\HouseSelfInspection\\HouseSelfInspection.csproj",
+      "projectPath": "C:\\Users\\eshwo\\Desktop\\Project\\HouseSelfInspection\\Backend\\HouseSelfInspection\\HouseSelfInspection.csproj",
       "packagesPath": "C:\\Users\\eshwo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eshwo\\Desktop\\Major Project\\HouseSelfInspection\\HouseSelfInspection\\obj\\",
+      "outputPath": "C:\\Users\\eshwo\\Desktop\\Project\\HouseSelfInspection\\Backend\\HouseSelfInspection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

@@ -7,11 +7,17 @@ namespace HouseSelfInspection.Models
 {
     public class HouseModel
     {
-        public int HouseID { get; set; }
+        public int ID { get; set; }
 
-        public string Address { get; set; }
+        public string House_Number { get; set; }
 
-        public string Size { get; set; }
+        public string Street { get; set; }
+
+        public string Suburb { get; set; }
+
+        public string State { get; set; }
+
+        public string Postal_Code { get; set; }
 
 
     }
