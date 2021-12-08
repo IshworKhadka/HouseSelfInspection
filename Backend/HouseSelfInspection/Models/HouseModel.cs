@@ -9,7 +9,11 @@ namespace HouseSelfInspection.Models
     {
         public int ID { get; set; }
 
-        public string House_Number { get; set; }
+        public string House_size { get; set; }
+
+        public string House_type { get; set; }
+
+        public string House_number { get; set; }
 
         public string Street { get; set; }
 
@@ -17,7 +21,7 @@ namespace HouseSelfInspection.Models
 
         public string State { get; set; }
 
-        public string Postal_Code { get; set; }
+        public string Postal_code { get; set; }
 
 
     }

@@ -14,6 +14,6 @@ namespace HouseSelfInspection
 
         }
 
-        public DbSet<HouseModel> houses { get; set; }
+        public DbSet<HouseModel> Houses { get; set; }
     }
 }
