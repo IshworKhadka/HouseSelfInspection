@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using HouseSelfInspection.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HouseSelfInspection.Controllers
 {
@@ -34,13 +35,28 @@ namespace HouseSelfInspection.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] HouseModel model)
+        public async Task<IActionResult> Post([FromBody] HouseModel model)
         {
             context.Houses.Add(model);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
+            return Ok(model);
         }
 
-       
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] HouseModel model)
+        {
+            if(id != model.Id)
+            {
+                return BadRequest();
+            }
+
+            context.Entry(model).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return Ok(model);
+            
+        }
+
+
 
     }
 }

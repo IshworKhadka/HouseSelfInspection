@@ -7,7 +7,7 @@ namespace HouseSelfInspection.Models
 {
     public class TenantModel
     {
-        public int TenantID { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -15,6 +15,10 @@ namespace HouseSelfInspection.Models
 
         public string Email { get; set; }
 
-     
+        public int HouseID { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+
     }
 }

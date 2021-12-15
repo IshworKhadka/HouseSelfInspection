@@ -7,7 +7,7 @@ namespace HouseSelfInspection.Models
 {
     public class HouseModel
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         public string House_size { get; set; }
 
