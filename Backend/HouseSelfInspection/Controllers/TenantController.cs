@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HouseSelfInspection.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +14,15 @@ namespace HouseSelfInspection.Controllers
     [ApiController]
     public class TenantController : ControllerBase
     {
-        readonly InspectionContext context;
+        readonly ApplicationContext context;
+        private UserManager<ApplicationUser> _userManager;
 
-        public TenantController(InspectionContext context)
+        public TenantController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
+        public TenantController(ApplicationContext context)
         {
             this.context = context;
         }
@@ -30,12 +37,41 @@ namespace HouseSelfInspection.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] TenantModel model)
         {
-            context.Tenants.Add(model);
-            await context.SaveChangesAsync();
-            return Ok(model);
+            try
+            {
+                context.Tenants.Add(model);
+
+                var loginModel = new LoginModel()
+                {
+                    username = model.Username,
+                    password = model.Password,
+                    isAdmin = false
+                };
+
+                var applicationUser = new ApplicationUser()
+                {
+                    UserName = model.Username,
+                    Email = model.Email,
+                    FullName = model.Name
+                };
+
+
+                context.Login.Add(loginModel);
+                var result = _userManager.CreateAsync(applicationUser, model.Password);
+                await context.SaveChangesAsync();
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
 
         }
 
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] TenantModel model)
         {

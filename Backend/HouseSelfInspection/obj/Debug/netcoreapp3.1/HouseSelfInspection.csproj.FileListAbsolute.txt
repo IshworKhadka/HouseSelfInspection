@@ -1,0 +1,6 @@
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp3.1\HouseSelfInspection.csproj.AssemblyReference.cache
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp3.1\HouseSelfInspection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp3.1\HouseSelfInspection.AssemblyInfoInputs.cache
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp3.1\HouseSelfInspection.AssemblyInfo.cs
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp3.1\HouseSelfInspection.csproj.CoreCompileInputs.cache
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp3.1\HouseSelfInspection.MvcApplicationPartsAssemblyInfo.cache

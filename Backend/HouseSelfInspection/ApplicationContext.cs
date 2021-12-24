@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace HouseSelfInspection
 {
-    public class InspectionContext : DbContext
+    public class ApplicationContext : DbContext
     {
-        public InspectionContext(DbContextOptions<InspectionContext> options) : base(options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 
         }
 
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
         public DbSet<HouseModel> Houses { get; set; }
         public DbSet<TenantModel> Tenants { get; set; }
+        public DbSet<LoginModel> Login { get; set; }
     }
 }

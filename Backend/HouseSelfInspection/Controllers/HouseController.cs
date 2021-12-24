@@ -15,9 +15,9 @@ namespace HouseSelfInspection.Controllers
     public class HouseController : Controller
     {
 
-        readonly InspectionContext context;
+        readonly ApplicationContext context;
 
-        public HouseController(InspectionContext context)
+        public HouseController(ApplicationContext context)
         {
             this.context = context;
         }

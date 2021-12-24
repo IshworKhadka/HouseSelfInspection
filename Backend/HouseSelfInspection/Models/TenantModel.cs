@@ -17,7 +17,13 @@ namespace HouseSelfInspection.Models
 
         public int HouseID { get; set; }
 
+        public string House_address { get; set; }
+
         public DateTime StartDate { get; set; }
+
+        public string Username { get; set; }
+
+        public string Password { get; set; }
 
 
     }

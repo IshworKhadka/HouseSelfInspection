@@ -30,7 +30,6 @@ C:\Users\eshwo\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\o
 C:\Users\eshwo\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.RazorTargetAssemblyInfo.cache
 C:\Users\eshwo\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.dll
 C:\Users\eshwo\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.pdb
-C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.csproj.AssemblyReference.cache
 C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.AssemblyInfoInputs.cache
 C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.AssemblyInfo.cs
@@ -48,3 +47,4 @@ C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfI
 C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\bin\Debug\netcoreapp2.1\HouseSelfInspection.pdb
 C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.RazorTargetAssemblyInfo.cache
 C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.genruntimeconfig.cache
+C:\Users\Abi\OneDrive - University of South Australia\Desktop\Project\HouseSelfInspection\Backend\HouseSelfInspection\obj\Debug\netcoreapp2.1\HouseSelfInspection.csproj.AssemblyReference.cache
