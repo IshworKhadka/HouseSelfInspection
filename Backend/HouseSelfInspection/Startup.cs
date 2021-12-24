@@ -39,7 +39,7 @@ namespace HouseSelfInspection
                 .AllowAnyMethod();
             }));
 
-            //services.AddDbContext<ApplicationContext>(opt => opt.UseInMemoryDatabase("house"));
+            //services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase("house"));
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>()
@@ -66,7 +66,8 @@ namespace HouseSelfInspection
             //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             //    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
-            //}).AddJwtBearer( x => {
+            //}).AddJwtBearer(x =>
+            //{
             //    x.RequireHttpsMetadata = false;
             //    x.SaveToken = false;
             //    x.TokenValidationParameters = new TokenValidationParameters
@@ -77,7 +78,7 @@ namespace HouseSelfInspection
             //        ValidateAudience = false,
             //        ClockSkew = TimeSpan.Zero
             //    };
-            
+
             //});
         }
 

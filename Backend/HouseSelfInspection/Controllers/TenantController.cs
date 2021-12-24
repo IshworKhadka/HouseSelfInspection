@@ -17,10 +17,10 @@ namespace HouseSelfInspection.Controllers
         readonly ApplicationContext context;
         private UserManager<ApplicationUser> _userManager;
 
-        public TenantController(UserManager<ApplicationUser> userManager)
-        {
-            _userManager = userManager;
-        }
+        //public TenantController(UserManager<ApplicationUser> userManager)
+        //{
+        //    _userManager = userManager;
+        //}
 
         public TenantController(ApplicationContext context)
         {
@@ -30,7 +30,15 @@ namespace HouseSelfInspection.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<TenantModel>> Get()
         {
-            return context.Tenants;
+            try
+            {
+                return context.Tenants;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         
         }
 
@@ -41,25 +49,27 @@ namespace HouseSelfInspection.Controllers
             {
                 context.Tenants.Add(model);
 
-                var loginModel = new LoginModel()
-                {
-                    username = model.Username,
-                    password = model.Password,
-                    isAdmin = false
-                };
-
-                var applicationUser = new ApplicationUser()
-                {
-                    UserName = model.Username,
-                    Email = model.Email,
-                    FullName = model.Name
-                };
+                //var loginModel = new LoginModel()
+                //{
+                //    username = model.Username,
 
 
-                context.Login.Add(loginModel);
-                var result = _userManager.CreateAsync(applicationUser, model.Password);
+                //    password = model.Password,
+                //    isAdmin = false
+                //};
+
+                //var applicationUser = new ApplicationUser()
+                //{
+                //    UserName = model.Username,
+                //    Email = model.Email,
+                //    FullName = model.Name
+                //};
+
+
+                //context.Login.Add(loginModel);
+                //var result = _userManager.CreateAsync(applicationUser, model.Password);
                 await context.SaveChangesAsync();
-                return Ok(result);
+                return Ok(model);
 
             }
             catch (Exception ex)
@@ -75,14 +85,24 @@ namespace HouseSelfInspection.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] TenantModel model)
         {
-            if (id != model.Id)
+            try
             {
-                return BadRequest();
+                if (id != model.Id)
+                {
+                    return BadRequest();
+                }
+                context.Entry(model).State = EntityState.Modified;
+                await context.SaveChangesAsync();
+                return Ok(model);
             }
-            context.Entry(model).State = EntityState.Modified;
-            await context.SaveChangesAsync();
-            return Ok(model);
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
+       
     }
 }
