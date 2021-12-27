@@ -77,7 +77,6 @@ namespace HouseSelfInspection.Controllers
 
                 throw ex;
             }
-           
 
         }
 

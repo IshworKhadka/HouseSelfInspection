@@ -57,7 +57,7 @@ namespace HouseSelfInspection
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            ////JWT Authentication
+            //JWT Authentication
             //var key = Encoding.UTF8.GetBytes(Configuration["ApplicationSettings: JWT_Secret"].ToString());
 
             //services.AddAuthentication(x =>
