@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HouseSelfInspection
 {
-    public class BloggingContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
+    public class ApplicationContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
     {
         public ApplicationContext CreateDbContext(string[] args)
         {
