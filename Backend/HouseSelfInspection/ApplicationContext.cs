@@ -14,8 +14,6 @@ namespace HouseSelfInspection
 
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-
         public DbSet<HouseModel> Houses { get; set; }
         public DbSet<TenantModel> Tenants { get; set; }
         public DbSet<LoginModel> Login { get; set; }
