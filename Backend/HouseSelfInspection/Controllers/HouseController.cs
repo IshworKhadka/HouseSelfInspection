@@ -94,6 +94,23 @@ namespace HouseSelfInspection.Controllers
         }
 
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                context.Houses.Remove(context.Houses.Find(id));
+                await context.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
         [HttpPost("FromForm"), DisableRequestSizeLimit]
         public IActionResult Upload()
         {
