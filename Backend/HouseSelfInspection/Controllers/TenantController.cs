@@ -16,13 +16,7 @@ namespace HouseSelfInspection.Controllers
     [ApiController]
     public class TenantController : ControllerBase
     {
-        readonly ApplicationContext context;
-        private UserManager<ApplicationUser> _userManager;
-
-        //public TenantController(UserManager<ApplicationUser> userManager)
-        //{
-        //    _userManager = userManager;
-        //}
+        private readonly ApplicationContext context;
 
         public TenantController(ApplicationContext context)
         {
@@ -64,27 +58,19 @@ namespace HouseSelfInspection.Controllers
         {
             try
             {
+                
                 context.Tenants.Add(model);
 
                 //var loginModel = new LoginModel()
                 //{
                 //    username = model.Username,
 
-
                 //    password = model.Password,
                 //    isAdmin = false
                 //};
-
-                //var applicationUser = new ApplicationUser()
-                //{
-                //    UserName = model.Username,
-                //    Email = model.Email,
-                //    FullName = model.Name
-                //};
-
-
                 //context.Login.Add(loginModel);
                 //var result = _userManager.CreateAsync(applicationUser, model.Password);
+
                 await context.SaveChangesAsync();
                 return Ok(model);
 
@@ -136,41 +122,41 @@ namespace HouseSelfInspection.Controllers
         }
 
 
-        [HttpPost, DisableRequestSizeLimit]
-        public  IActionResult Upload()
-        {
-            try
-            {
-                var files = Request.Form.Files;
-                var folderName = Path.Combine("Resources", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+        //[HttpPost, DisableRequestSizeLimit]
+        //public IActionResult Upload()
+        //{
+        //    try
+        //    {
+        //        var files = Request.Form.Files;
+        //        var folderName = Path.Combine("Resources", "Images");
+        //        var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
-                if (files.Any(f => f.Length == 0))
-                {
-                    return BadRequest();
-                }
+        //        if (files.Any(f => f.Length == 0))
+        //        {
+        //            return BadRequest();
+        //        }
 
-                foreach (var file in files)
-                {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var fullPath = Path.Combine(pathToSave, fileName);
-                    var dbPath = Path.Combine(folderName, fileName);
+        //        foreach (var file in files)
+        //        {
+        //            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+        //            var fullPath = Path.Combine(pathToSave, fileName);
+        //            var dbPath = Path.Combine(folderName, fileName);
 
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
-                    {
-                        file.CopyTo(stream);
-                    }
-                }
+        //            using (var stream = new FileStream(fullPath, FileMode.Create))
+        //            {
+        //                file.CopyTo(stream);
+        //            }
+        //        }
 
-                return Ok("All the files are successfully uploaded");
+        //        return Ok("All the files are successfully uploaded");
                 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                return StatusCode(500, $"Internal server error: {ex}");
-            }
-        }
+        //        return StatusCode(500, $"Internal server error: {ex}");
+        //    }
+        //}
 
        
     }

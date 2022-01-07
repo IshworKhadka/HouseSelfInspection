@@ -11,7 +11,7 @@ namespace HouseSelfInspection.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int HouseId { get; set; }
 
         [MaxLength(10)]
         public string House_size { get; set; }

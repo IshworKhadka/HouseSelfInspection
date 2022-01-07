@@ -41,6 +41,9 @@ namespace HouseSelfInspection.Models
 
         public int HouseId { get; set; }
 
+        [MaxLength(100)]
+        public string house_address { get; set; }
+
 
     }
 }

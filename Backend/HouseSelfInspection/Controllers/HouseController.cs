@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using HouseSelfInspection.Models;
 using Microsoft.AspNetCore.Http;
@@ -15,7 +17,7 @@ namespace HouseSelfInspection.Controllers
     public class HouseController : Controller
     {
 
-        readonly ApplicationContext context;
+        private readonly ApplicationContext context;
 
         public HouseController(ApplicationContext context)
         {
@@ -28,12 +30,6 @@ namespace HouseSelfInspection.Controllers
             try
             {
                 return context.Houses;
-                //return new HouseModel[] {
-                //    new HouseModel(){ House_Number= "24", Street = "Aberfeldy Avenue", Suburb = "Edwardstown", State = "South Australia", Postal_Code ="5039" },
-                //    new HouseModel(){ House_Number= "6", Street = "Winton Avenue", Suburb = "Broadview", State = "South Australia", Postal_Code ="5048" },
-                //    new HouseModel(){ House_Number= "99", Street = "Barramundi Drive", Suburb = "Hallett Cove", State = "South Australia", Postal_Code ="5158" },
-                //    new HouseModel(){  House_Number= "9/850", Street = "Pascoe Vale Road", Suburb = "Glenroy", State = "Victoria", Postal_Code ="3046" }
-                //};
 
             }
             catch (Exception ex)
@@ -80,7 +76,7 @@ namespace HouseSelfInspection.Controllers
         {
             try
             {
-                if (id != model.Id)
+                if (id != model.HouseId)
                 {
                     return BadRequest();
                 }
@@ -95,6 +91,43 @@ namespace HouseSelfInspection.Controllers
                 throw ex;
             }
             
+        }
+
+
+        [HttpPost("FromForm"), DisableRequestSizeLimit]
+        public IActionResult Upload()
+        {
+            try
+            {
+                var files = Request.Form.Files;
+                var folderName = Path.Combine("Resources", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+                if (files.Any(f => f.Length == 0))
+                {
+                    return BadRequest();
+                }
+
+                foreach (var file in files)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                }
+
+                return Ok("All the files are successfully uploaded");
+
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"Internal server error: {ex}");
+            }
         }
 
 

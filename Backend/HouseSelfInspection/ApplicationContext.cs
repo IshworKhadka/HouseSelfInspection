@@ -11,11 +11,15 @@ namespace HouseSelfInspection
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-
+           
         }
 
         public DbSet<HouseModel> Houses { get; set; }
         public DbSet<TenantModel> Tenants { get; set; }
         public DbSet<LoginModel> Login { get; set; }
+
+
+        
+
     }
 }
