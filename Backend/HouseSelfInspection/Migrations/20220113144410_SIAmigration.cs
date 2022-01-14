@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HouseSelfInspection.Migrations
 {
-    public partial class SIAMigration : Migration
+    public partial class SIAmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +29,22 @@ namespace HouseSelfInspection.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Inspections",
+                columns: table => new
+                {
+                    InspectionId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    HouseId = table.Column<int>(nullable: false),
+                    TenantId = table.Column<int>(nullable: false),
+                    Inspection_date = table.Column<DateTime>(nullable: false),
+                    Inspection_status = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Inspections", x => x.InspectionId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Login",
                 columns: table => new
                 {
@@ -47,7 +63,7 @@ namespace HouseSelfInspection.Migrations
                 name: "Tenants",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    TenantId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 25, nullable: false),
                     Contact = table.Column<string>(maxLength: 25, nullable: false),
@@ -60,7 +76,7 @@ namespace HouseSelfInspection.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tenants", x => x.Id);
+                    table.PrimaryKey("PK_Tenants", x => x.TenantId);
                     table.ForeignKey(
                         name: "FK_Tenants_Houses_HouseId",
                         column: x => x.HouseId,
@@ -77,6 +93,9 @@ namespace HouseSelfInspection.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Inspections");
+
             migrationBuilder.DropTable(
                 name: "Login");
 

@@ -71,12 +71,12 @@ namespace HouseSelfInspection.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] HouseModel model)
+        [HttpPut("{houseId}")]
+        public async Task<IActionResult> Put(int houseId, [FromBody] HouseModel model)
         {
             try
             {
-                if (id != model.HouseId)
+                if (houseId != model.HouseId)
                 {
                     return BadRequest();
                 }

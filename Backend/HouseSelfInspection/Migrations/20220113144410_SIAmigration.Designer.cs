@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HouseSelfInspection.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220106145316_SIAMigration")]
-    partial class SIAMigration
+    [Migration("20220113144410_SIAmigration")]
+    partial class SIAmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,6 +60,25 @@ namespace HouseSelfInspection.Migrations
                     b.ToTable("Houses");
                 });
 
+            modelBuilder.Entity("HouseSelfInspection.Models.InspectionModel", b =>
+                {
+                    b.Property<int>("InspectionId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HouseId");
+
+                    b.Property<DateTime>("Inspection_date");
+
+                    b.Property<string>("Inspection_status");
+
+                    b.Property<int>("TenantId");
+
+                    b.HasKey("InspectionId");
+
+                    b.ToTable("Inspections");
+                });
+
             modelBuilder.Entity("HouseSelfInspection.Models.LoginModel", b =>
                 {
                     b.Property<int>("User_ID")
@@ -79,7 +98,7 @@ namespace HouseSelfInspection.Migrations
 
             modelBuilder.Entity("HouseSelfInspection.Models.TenantModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TenantId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -110,7 +129,7 @@ namespace HouseSelfInspection.Migrations
                     b.Property<string>("house_address")
                         .HasMaxLength(100);
 
-                    b.HasKey("Id");
+                    b.HasKey("TenantId");
 
                     b.HasIndex("HouseId");
 

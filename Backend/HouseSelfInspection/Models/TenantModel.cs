@@ -12,7 +12,7 @@ namespace HouseSelfInspection.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int TenantId { get; set; }
 
         [Required]
         [MaxLength(25)]

@@ -14,6 +14,7 @@ namespace HouseSelfInspection.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class TenantController : ControllerBase
     {
         private readonly ApplicationContext context;
@@ -89,7 +90,7 @@ namespace HouseSelfInspection.Controllers
         {
             try
             {
-                if (id != model.Id)
+                if (id != model.TenantId)
                 {
                     return BadRequest();
                 }
@@ -149,7 +150,7 @@ namespace HouseSelfInspection.Controllers
         //        }
 
         //        return Ok("All the files are successfully uploaded");
-                
+
         //    }
         //    catch (Exception ex)
         //    {
@@ -158,6 +159,34 @@ namespace HouseSelfInspection.Controllers
         //    }
         //}
 
-       
+
+
+
+
+        private TenantModel[] list = new TenantModel[]
+        {
+            new TenantModel
+            {
+                TenantId = 1, Name = "Ishwor", Contact = "0410 356 835", Email = "ishworfloyd@gmail.com", StartDate = new DateTime(), Username = "ishwor", Password = "test",HouseId = 1, house_address = ""
+            },
+            new TenantModel
+            {
+                TenantId = 2, Name = "Sakar", Contact = "0400 123 456", Email = "mrsakar@gmail.com", StartDate = new DateTime(), Username = "sakar", Password = "test", HouseId = 3, house_address = ""
+            },
+            new TenantModel
+            {
+                TenantId = 3, Name = "Dinesh", Contact = "0400 123 456", Email = "mrdinesh@gmail.com", StartDate = new DateTime(), Username = "dinesh", Password = "test", HouseId = 3, house_address = ""
+            },
+            new TenantModel
+            {
+                TenantId = 4, Name = "Dipendra", Contact = "0400 123 456", Email = "mrdipendra@gmail.com", StartDate = new DateTime(), Username = "dipendra", Password = "test", HouseId = 4, house_address = ""
+            },
+            new TenantModel
+            {
+                TenantId = 5, Name = "Naga", Contact = "0400 123 456", Email = "mrnaga@gmail.com", StartDate = new DateTime(), Username = "naga", Password = "test", HouseId = 5, house_address = ""
+            }
+
+        };
+
     }
 }
